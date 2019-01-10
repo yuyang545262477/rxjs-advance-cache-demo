@@ -1,0 +1,20 @@
+<div class="notification">
+    <span>There's new data available. Click to reload the data.</span>
+    <button mat-raised-button color="accent" (click)="update$.next()">
+        <div class="flex-row">
+            <mat-icon>cached</mat-icon>
+            UPDATE
+        </div>
+    </button>
+</div>
+<button class="reload-button" (click)="forceReload()" mat-raised-button color="accent">
+    <div class="flex-row">
+        <mat-icon>cached</mat-icon>
+        FETCH NEW JOKES
+    </div>
+</button>
+<div class="notification" [class.visible]="showNotification$ | async">
+    ...
+</div>
+
+<mat-card *ngFor="let joke of jokes$ | async">...</mat-card>
